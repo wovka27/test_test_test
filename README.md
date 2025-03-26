@@ -24,11 +24,6 @@ interface IFormFieldGeneratorProps {
    * объект с описанием полей формы (label, атрибуты и другие необходимые параметры)
    */
   data: IFormFieldGeneratorData[]
-  /**
-   *
-   * объект для хранения значений полей формы, реализованный через v-model
-   */
-  formValues: FormData
 }
 
 export interface FormField {

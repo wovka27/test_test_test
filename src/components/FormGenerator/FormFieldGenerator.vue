@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ElCheckbox } from 'element-plus'
-import { computed, reactive, watch } from 'vue'
 
 import type { FormData, FormField, IFormFieldGeneratorData } from '@/components/FormGenerator/types'
 import PskDate from '@/components/UI/PskDate.vue'
@@ -14,22 +13,11 @@ interface IFormFieldGeneratorProps {
    * объект с описанием полей формы (label, атрибуты и другие необходимые параметры)
    */
   data: IFormFieldGeneratorData[]
-  /**
-   *
-   * объект для хранения значений полей формы, реализованный через v-model
-   */
-  modelValue: FormData
 }
 
-const props = defineProps<IFormFieldGeneratorProps>()
-const emit = defineEmits<{ (event: 'update:modelValue', value: FormData): void }>()
+defineProps<IFormFieldGeneratorProps>()
 
-const form_data = computed({
-  get: () => props.modelValue,
-  set: (value: FormData): void => {
-    emit('update:modelValue', value)
-  }
-})
+const form_data = defineModel<FormData>({default: {}})
 
 const getComponent = (field_type: FormField['type']) => {
   switch (field_type) {
