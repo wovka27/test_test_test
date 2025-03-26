@@ -91,12 +91,5 @@ const cancel = () => {
 </script>
 
 <template>
-  <FormGenerator :data="data" v-model="form_data" :cancel="cancel" :apply="apply">
-    <template #c_1_name="{ field }">
-      <PskInput label="хуй" :placeholder="field.placeholder" v-model="form_data.name" />
-    </template>
-    <template #c_1_last_name="{ field }">
-      <PskInput :label="field.label" :placeholder="field.placeholder" v-model="form_data.last_name" />
-    </template>
-  </FormGenerator>
+  <FormGenerator :data="data" v-model="form_data" :cancel="cancel" :apply="apply" />
 </template>
