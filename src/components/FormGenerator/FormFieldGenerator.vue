@@ -7,6 +7,7 @@ import PskInput from '@/components/UI/PskInput.vue'
 import PskSelect from '@/components/UI/PskSelect.vue'
 import PskStringList from '@/components/UI/PskStringList.vue'
 import PskSwitch from '@/components/UI/PskSwitch.vue'
+import { ElCheckbox } from 'element-plus'
 
 interface IFormFieldGeneratorProps {
   /**
@@ -32,7 +33,7 @@ const form_data = computed({
 const getComponent = (field_type: FormField['type']) => {
   switch (field_type) {
     case 'checkbox':
-      return PskSwitch
+      return ElCheckbox
     case 'textarea':
       return PskInput
     case 'select':

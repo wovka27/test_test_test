@@ -34,7 +34,7 @@ const appStateModule: Module<AppState, unknown> = {
       state.is_ready = !!val
     },
     setErrorList(state, errors: IAppError[]) {
-      state.error_list = errors
+      state.error_list.push(...errors)
     },
     setIsStateBeforeEqualAfter(state, fn: (() => boolean) | null) {
       state.getIsStateBeforeEqualAfter = fn

@@ -9,10 +9,9 @@ import type { IFormFieldGeneratorData } from '@/components/FormGenerator/types'
 
 import useAppHeader from '@/composables/app/useAppHeader'
 
-import { message } from '@/utils/message'
+import { notification } from '@/utils/notification'
 
 import getHandleBackArgs from '@/helpers/getHandleBackArgs'
-import { notification } from '@/utils/notification'
 
 const router = useRouter()
 
@@ -75,10 +74,9 @@ useAppHeader({
 })
 
 const apply = () => {
-  console.log(form_data)
   notification({
     title: 'Success',
-    message: Object.entries(form_data).reduce<string>((acc, [k, v]) => acc + `${k}: ${v}`, ''),
+    message: Object.entries(form_data).reduce<string>((acc, [k, v]) => acc + `${k}: ${v}\n`, ''),
     type: 'success'
   })
 }

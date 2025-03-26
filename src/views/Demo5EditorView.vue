@@ -63,10 +63,9 @@ useAppHeader({
 })
 
 const apply = () => {
-  console.log(form_data)
   notification({
     title: 'Success',
-    message: Object.entries(form_data).reduce<string>((acc, [k, v]) => acc + `${k}: ${v}`, ''),
+    message: Object.entries(form_data).reduce<string>((acc, [k, v]) => acc + `${k}: ${v}\n`, ''),
     type: 'success'
   })
 }
@@ -85,11 +84,7 @@ const cancel = () => {
 <template>
   <FormLayout :cancel="cancel" :apply="apply">
     <PskGridContainer grid-column-count="3">
-      <FormFieldGenerator :data="data" v-model:formValues="form_data">
-        <template #reservation-info_guest_name="{ value, field, updateData }">
-          <PskInput :placeholder="field.placeholder" :model-value="value" @update:model-value="updateData" />
-        </template>
-      </FormFieldGenerator>
+      <FormFieldGenerator :data="data" v-model:formValues="form_data" />
     </PskGridContainer>
   </FormLayout>
 </template>

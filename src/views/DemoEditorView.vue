@@ -68,7 +68,6 @@ useAppHeader({
 })
 
 const apply = () => {
-  console.log(form_data)
   notification({
     title: 'Success',
     message: Object.entries(form_data).reduce<string>((acc, [k, v]) => acc + `${k}: ${v}\n`, ''),
