@@ -45,9 +45,14 @@ const getComponent = (field_type: FormField['type']) => {
     :grid-span="item.grid.col_span"
     :title="item.grid.title"
   >
-    <slot v-for="(field, idx) in item.fields" :field="field" :name="`${item.grid.name}_${field.name}`" :key="idx">
+    <slot v-for="(field, idx) in item.fields" :name="`${item.grid.name}_${field.name}`" :field="field" :key="idx">
       <component :is="getComponent(field.type)" v-bind="field" v-model="form_data[field.name]" />
     </slot>
-    <FormFieldGenerator v-if="item.children?.length" v-model="form_data" :data="item.children" />
+
+    <FormFieldGenerator v-if="item.children?.length" v-model="form_data" :data="item.children">
+      <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
+        <slot :name="slotName" v-bind="slotProps" />
+      </template>
+    </FormFieldGenerator>
   </PskGridContainer>
 </template>

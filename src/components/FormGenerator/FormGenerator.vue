@@ -18,7 +18,9 @@ const form_data = defineModel<FormData>({ default: {} })
   <FormLayout :cancel="cancel" :apply="apply">
     <PskGridContainer grid-column-count="3">
       <FormFieldGenerator :data="data" v-model="form_data">
-        <slot />
+        <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
+          <slot :name="slotName" v-bind="slotProps" />
+        </template>
       </FormFieldGenerator>
     </PskGridContainer>
   </FormLayout>
