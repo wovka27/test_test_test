@@ -10,9 +10,7 @@ export interface IHeaderParams {
   optionalCallback?: (app_header_state: any) => void
 }
 
-export default (params: IHeaderParams) => {
-  const store = useStore()
-
+export default (store: ReturnType<typeof useStore>, params: IHeaderParams) => {
   store.commit('appHeader/setTitle', params.title ?? '')
   store.commit('appHeader/setBreadcrumbs', params.breadcrumbs)
   store.commit('appHeader/setHandleBack', params.handleBack ?? null)

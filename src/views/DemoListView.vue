@@ -2,10 +2,13 @@
 import TableActionsContainer from '@/components/TableActionsContainer.vue'
 
 import useAppHeader from '@/composables/app/useAppHeader'
+import useStore from '@/composables/app/useStore'
 
 import { getMockList } from '@/mock/mockList'
 
-useAppHeader({
+const store = useStore()
+
+useAppHeader(store,{
   title: 'Demo List',
   breadcrumbs: [{ label: 'Demo List' }]
 })

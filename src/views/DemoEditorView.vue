@@ -5,13 +5,50 @@ import { useRouter } from 'vue-router'
 import FormGenerator from '@/components/FormGenerator/FormGenerator.vue'
 import type { IFormFieldGeneratorData } from '@/components/FormGenerator/types'
 
-import useAppHeader from '@/composables/app/useAppHeader'
+import useEditorView from '@/composables/app/useEditorView'
+
+import { fetchGetData } from '@/services/REST/test/data'
 
 import { notification } from '@/utils/notification'
 
-import getHandleBackArgs from '@/helpers/getBackArgs'
+import getBackArgs from '@/helpers/getBackArgs'
 
 const router = useRouter()
+
+const { is_data_loaded, apply } = useEditorView({
+  router,
+  apply: {
+    update: {
+      fetchUpdateEntity: async () => {
+        notification({
+          title: 'Success',
+          message: Object.entries(form_data).reduce<string>((acc, [k, v]) => acc + `${k}: ${v}\n`, ''),
+          type: 'success'
+        })
+      }
+    }
+  },
+  back_route_name: 'demo-4',
+  fetchGetEntity: async () => await fetchGetData(),
+  getRequestData: () => ({ ...form_data }),
+  setFormData: (formData) => {
+    Object.assign(form_data, formData['1'])
+  },
+  mount: {
+    common: {
+      app_header_props: () => ({
+        title: `Detail demo${detail_id}`,
+        breadcrumbs: [
+          {
+            label: list_id,
+            route: getBackArgs(list_id)
+          },
+          { label: `Detail demo${detail_id}` }
+        ]
+      })
+    }
+  }
+})
 
 const form_data = reactive({
   name: '',
@@ -53,25 +90,6 @@ const {
   value: [list_id, detail_id]
 } = computed(() => router.currentRoute.value.path.substring(1).split('/'))
 
-useAppHeader({
-  title: `Detail demo${detail_id}`,
-  breadcrumbs: [
-    {
-      label: list_id,
-      route: getHandleBackArgs(list_id)
-    },
-    { label: `Detail demo${detail_id}` }
-  ]
-})
-
-const apply = () => {
-  notification({
-    title: 'Success',
-    message: Object.entries(form_data).reduce<string>((acc, [k, v]) => acc + `${k}: ${v}\n`, ''),
-    type: 'success'
-  })
-}
-
 const cancel = () => {
   Object.assign(form_data, {
     name: '',
@@ -89,5 +107,5 @@ const cancel = () => {
 </script>
 
 <template>
-  <FormGenerator :data="data" v-model="form_data" :cancel="cancel" :apply="apply" />
+  <FormGenerator v-if="is_data_loaded" :data="data" v-model="form_data" :cancel="cancel" :apply="apply" />
 </template>

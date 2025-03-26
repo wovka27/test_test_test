@@ -276,11 +276,7 @@ export default class RestApi {
       if (options?.onProgress) {
         return response
       }
-      if (response_json.meta) {
-        return response_json
-      } else {
-        return response_json.payload
-      }
+      return response_json
     } else {
       if (options?.cbHandlerErrorResponse !== null) {
         options?.cbHandlerErrorResponse
