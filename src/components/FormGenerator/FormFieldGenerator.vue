@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive, watch } from 'vue'
+import { computed } from 'vue'
 
 import type { FormData, FormField, IFormFieldGeneratorData } from '@/components/FormGenerator/types'
 import PskDate from '@/components/UI/PskDate.vue'
@@ -26,9 +26,7 @@ const emit = defineEmits<{ (event: 'update:formValues', value: FormData): void }
 
 const form_data = computed({
   get: () => props.formValues,
-  set: (v: FormData): void => {
-    emit('update:formValues', v)
-  }
+  set: (v: FormData): void => emit('update:formValues', v)
 })
 
 const getComponent = (field_type: FormField['type']) => {
