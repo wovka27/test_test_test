@@ -1,6 +1,7 @@
 import { onBeforeMount } from 'vue'
 
 import useStore from '@/composables/app/useStore'
+
 import { sleep } from '@/utils/sleep'
 
 export default () => {
