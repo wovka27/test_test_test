@@ -28,7 +28,7 @@ const form_data = reactive({
 
 const data = reactive<IFormFieldGeneratorData[]>([
   {
-    grid: { col: 2, name: 'order-details', col_span: 2 },
+    grid: { col: 3, name: 'order-details', col_span: 3 },
     fields: [
       { name: 'order_number', label: 'Номер заказа', placeholder: 'Введите номер', type: 'input' },
       { name: 'customer_name', label: 'Клиент', placeholder: 'Введите имя клиента', type: 'input' },
@@ -44,7 +44,7 @@ const data = reactive<IFormFieldGeneratorData[]>([
     ],
     children: [
       {
-        grid: { col: 1, col_span: 1, name: 'payment-details', title: 'Оплата' },
+        grid: { col: 2, col_span: 3, name: 'payment-details', title: 'Оплата' },
         fields: [
           {
             name: 'payment_method',
@@ -75,6 +75,7 @@ useAppHeader({
 })
 
 const apply = () => {
+  console.log(form_data)
   notification({
     title: 'Success',
     message: Object.entries(form_data).reduce<string>((acc, [k, v]) => acc + `${k}: ${v}`, ''),

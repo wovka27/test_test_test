@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, watch } from 'vue'
+import { computed, reactive, watch } from 'vue'
 
 import type { FormData, FormField, IFormFieldGeneratorData } from '@/components/FormGenerator/types'
 import PskDate from '@/components/UI/PskDate.vue'
@@ -24,7 +24,12 @@ interface IFormFieldGeneratorProps {
 const props = defineProps<IFormFieldGeneratorProps>()
 const emit = defineEmits<{ (event: 'update:formValues', value: FormData): void }>()
 
-const form_data = reactive({ ...props.formValues })
+const form_data = computed({
+  get: () => props.formValues,
+  set: (v: FormData): void => {
+    emit('update:formValues', v)
+  }
+})
 
 const getComponent = (field_type: FormField['type']) => {
   switch (field_type) {
@@ -47,12 +52,6 @@ const updateData = (key, value) => {
   emit('update:formValues', { ...form_data, [key]: value })
 }
 
-watch(
-  () => props.formValues,
-  (value) => Object.assign(form_data, value)
-)
-
-watch(form_data, (value) => emit('update:formValues', value), { deep: true })
 </script>
 
 <template>
@@ -66,13 +65,13 @@ watch(form_data, (value) => emit('update:formValues', value), { deep: true })
     <slot
       v-for="(field, idx) in item.fields"
       :field="field"
-      :value="formValues[field.name]"
+      :value="form_data[field.name]"
       :name="`${item.grid.name}_${field.name}`"
       :updateData="updateData"
       :key="idx"
     >
-      <component :is="getComponent(field.type)" v-bind="field" v-model="formValues[field.name]" :id="field.name" />
+      <component :is="getComponent(field.type)" v-bind="field" v-model="form_data[field.name]" :id="field.name" />
     </slot>
-    <FormFieldGenerator v-if="item.children?.length" v-model:form-values="form_data" :data="item.children" />
+    <FormFieldGenerator v-if="item.children?.length" :form-values="formValues" :data="item.children" />
   </PskGridContainer>
 </template>

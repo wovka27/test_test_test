@@ -17,33 +17,34 @@ import { notification } from '@/utils/notification'
 const router = useRouter()
 
 const form_data = reactive({
-  order_number: '',
-  customer_name: '',
-  delivery_date: '',
-  status: '',
-  is_paid: false
+  username: '',
+  email: '',
+  role: '',
+  registered_at: '',
+  is_active: false,
+  phone: '',
+  address: ''
 })
 
 const data = reactive<IFormFieldGeneratorData[]>([
   {
-    grid: { col: 2, name: 'order-details', col_span: 2 },
+    grid: { col: 3, name: 'user-info', col_span: 3 },
     fields: [
-      { name: 'order_number', label: 'Номер заказа', placeholder: 'Введите номер', type: 'input' },
-      { name: 'customer_name', label: 'Клиент', placeholder: 'Введите имя клиента', type: 'input' },
-      { name: 'delivery_date', label: 'Дата доставки', placeholder: 'Выберите дату', type: 'date' },
+      { name: 'username', label: 'Имя пользователя', placeholder: 'Введите имя', type: 'input' },
+      { name: 'email', label: 'Email', placeholder: 'Введите email', type: 'input' },
+      { name: 'role', label: 'Роль', placeholder: 'Выберите роль', type: 'select', options: ['Админ', 'Модератор', 'Пользователь'] },
+      { name: 'registered_at', label: 'Дата регистрации', placeholder: 'Выберите дату', type: 'date' },
+      { name: 'is_active', label: 'Активен?', type: 'checkbox' }
+    ],
+    children: [
       {
-        name: 'status',
-        label: 'Статус',
-        placeholder: 'Выберите статус',
-        type: 'select',
-        options: ['В обработке', 'Отправлен', 'Доставлен']
-      },
-      { name: 'is_paid', label: 'Оплачен?', type: 'checkbox' }
+        grid: { col: 3, col_span: 2, name: 'contact-info', title: 'Контактные данные' },
+        fields: [
+          { name: 'phone', label: 'Телефон', placeholder: 'Введите телефон', type: 'phone' },
+          { name: 'address', label: 'Адрес', placeholder: 'Введите адрес', type: 'input' }
+        ]
+      }
     ]
-  },
-  {
-    grid: { col: 1, col_span: 1, name: 'payment-details', title: 'Оплата' },
-    fields: []
   }
 ])
 
@@ -63,6 +64,7 @@ useAppHeader({
 })
 
 const apply = () => {
+  console.log(form_data)
   notification({
     title: 'Success',
     message: Object.entries(form_data).reduce<string>((acc, [k, v]) => acc + `${k}: ${v}`, ''),
@@ -72,11 +74,13 @@ const apply = () => {
 
 const cancel = () => {
   Object.assign(form_data, {
-    order_number: '',
-    customer_name: '',
-    delivery_date: '',
-    status: '',
-    is_paid: false
+    username: '',
+    email: '',
+    role: '',
+    registered_at: '',
+    is_active: false,
+    phone: '',
+    address: ''
   })
 }
 </script>
