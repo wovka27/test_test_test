@@ -13,6 +13,7 @@ import { message } from '@/utils/message'
 
 import getHandleBackArgs from '@/helpers/getHandleBackArgs'
 import { notification } from '@/utils/notification'
+import FormGenerator from '@/components/FormGenerator/FormGenerator.vue'
 
 const router = useRouter()
 
@@ -99,9 +100,5 @@ const cancel = () => {
 </script>
 
 <template>
-  <FormLayout :cancel="cancel" :apply="apply">
-    <PskGridContainer grid-column-count="3">
-      <FormFieldGenerator :data="data" v-model="form_data" />
-    </PskGridContainer>
-  </FormLayout>
+  <FormGenerator :data="data" v-model="form_data" :cancel="cancel" :apply="apply" />
 </template>

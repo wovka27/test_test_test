@@ -17,7 +17,7 @@ interface IFormFieldGeneratorProps {
 
 defineProps<IFormFieldGeneratorProps>()
 
-const form_data = defineModel<FormData>({default: {}})
+const form_data = defineModel<FormData>({ default: {} })
 
 const getComponent = (field_type: FormField['type']) => {
   switch (field_type) {
