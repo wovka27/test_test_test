@@ -84,7 +84,7 @@ const cancel = () => {
 <template>
   <FormLayout :cancel="cancel" :apply="apply">
     <PskGridContainer grid-column-count="3">
-      <FormFieldGenerator :data="data" v-model:formValues="form_data" />
+      <FormFieldGenerator :data="data" v-model="form_data" />
     </PskGridContainer>
   </FormLayout>
 </template>
