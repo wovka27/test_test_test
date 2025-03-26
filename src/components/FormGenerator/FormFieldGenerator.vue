@@ -48,7 +48,7 @@ const getComponent = (field_type: FormField['type']) => {
   }
 }
 
-const updateData = (key, value) => {
+const updateData = (key: string, value: unknown) => {
   emit('update:formValues', { ...form_data, [key]: value })
 }
 
