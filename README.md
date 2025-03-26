@@ -104,9 +104,9 @@ const data = reactive<IFormFieldGeneratorData[]>([
 
 ### Пример кастомизации слота
 ```typescript jsx
-<FormFieldGenerator :data="data" v-model="form_data">
+<FormGenerator :data="data" v-model="form_data">
   <template #reservation-info_guest_name="{ field }">
     <PskInput :placeholder="field.placeholder" v-model="form_data.guest_name" />
   </template>
-</FormFieldGenerator>
+</FormGenerator>
 ```
