@@ -48,11 +48,6 @@ const appStateModule: Module<AppState, unknown> = {
       state.getIsStateBeforeEqualAfter = null
       state.is_app_start_screen_show = false
     }
-  },
-  actions: {
-    async setIsReady({ commit }, val?: boolean) {
-      commit('setIsReady', val)
-    }
   }
 }
 

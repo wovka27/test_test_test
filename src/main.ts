@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 
-import store, { setupStore } from '@/stores'
+import { setupStore } from '@/stores'
 
 import App from './App.vue'
 import components_global from './components/global-components'

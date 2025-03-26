@@ -19,7 +19,7 @@ const modalImageModule: Module<ModalImageState, unknown> = {
     closeModal(state) {
       state.image_url = ''
       state.is_open = false
-    },
+    }
   }
 }
 
