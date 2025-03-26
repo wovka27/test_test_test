@@ -10,9 +10,9 @@ import type { IFormFieldGeneratorData } from '@/components/FormGenerator/types'
 import useAppHeader from '@/composables/app/useAppHeader'
 
 import { message } from '@/utils/message'
+import { notification } from '@/utils/notification'
 
 import getHandleBackArgs from '@/helpers/getHandleBackArgs'
-import { notification } from '@/utils/notification'
 
 const router = useRouter()
 
@@ -33,7 +33,7 @@ const data = reactive<IFormFieldGeneratorData[]>([
   {
     grid: { col: 3, name: 'c_1', col_span: 3 },
     fields: [
-      { name: 'name', label: 'имя', placeholder: 'Введите имя', type: 'input' },
+      { name: 'name', label: 'имя', placeholder: 'Введите имя' },
       { name: 'last_name', label: 'Отчество', placeholder: 'Введите отчество', type: 'input' },
       { name: 'middle_name', label: 'Фамилия', placeholder: 'Введите фамилию', type: 'input' },
       { name: 'updated_at', label: 'Дата обновления', placeholder: 'Выберите дату', type: 'date' },
@@ -94,7 +94,11 @@ const cancel = () => {
 <template>
   <FormLayout :cancel="cancel" :apply="apply">
     <PskGridContainer grid-column-count="3">
-      <FormFieldGenerator :data="data" v-model:formValues="form_data" />
+      <FormFieldGenerator :data="data" v-model="form_data">
+        <template #c_1_name="{ field }">
+          <PskInput :label="field.label" :placeholder="field.placeholder" v-model="form_data.name" />
+        </template>
+      </FormFieldGenerator>
     </PskGridContainer>
   </FormLayout>
 </template>
