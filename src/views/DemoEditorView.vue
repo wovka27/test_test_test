@@ -96,7 +96,7 @@ const cancel = () => {
       <PskInput :label="field.label" :placeholder="field.placeholder" v-model="form_data.name" />
     </template>
     <template #c_1_last_name="{ field }">
-      <PskInput :label="field.label" :placeholder="field.placeholder" v-model="form_data.name" />
+      <PskInput :label="field.label" :placeholder="field.placeholder" v-model="form_data.last_name" />
     </template>
   </FormGenerator>
 </template>

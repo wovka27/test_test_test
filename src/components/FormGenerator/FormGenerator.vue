@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import FormLayout from '@/layouts/FormLayout.vue'
 
+import FormFieldGenerator from '@/components/FormGenerator/FormFieldGenerator.vue'
 import type { FormData, IFormFieldGeneratorData } from '@/components/FormGenerator/types'
 
 interface IFormGeneratorProps {
