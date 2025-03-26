@@ -21,7 +21,12 @@ const form_data = reactive({
   room_type: '',
   check_in: '',
   check_out: '',
-  has_breakfast: false
+  has_breakfast: false,
+  guest_name1: '',
+  room_type1: '',
+  check_in1: '',
+  check_out1: '',
+  has_breakfast1: false
 })
 
 const data = reactive<IFormFieldGeneratorData[]>([
@@ -43,7 +48,19 @@ const data = reactive<IFormFieldGeneratorData[]>([
   },
   {
     grid: { col: 2, col_span: 3, name: 'payment-info', title: 'Оплата' },
-    fields: []
+    fields: [
+      { name: 'guest_name1', label: 'Имя гостя', placeholder: 'Введите имя', type: 'input' },
+      {
+        name: 'room_type1',
+        label: 'Тип номера',
+        placeholder: 'Выберите тип',
+        type: 'select',
+        options: ['Стандарт', 'Люкс', 'Семейный']
+      },
+      { name: 'check_in1', label: 'Дата заезда', placeholder: 'Выберите дату', type: 'date' },
+      { name: 'check_out1', label: 'Дата выезда', placeholder: 'Выберите дату', type: 'date' },
+      { name: 'has_breakfast1', label: 'Завтрак включен?', type: 'checkbox' }
+    ]
   }
 ])
 

@@ -32,16 +32,22 @@ const data = reactive<IFormFieldGeneratorData[]>([
     fields: [
       { name: 'username', label: 'Имя пользователя', placeholder: 'Введите имя', type: 'input' },
       { name: 'email', label: 'Email', placeholder: 'Введите email', type: 'input' },
-      { name: 'role', label: 'Роль', placeholder: 'Выберите роль', type: 'select', options: ['Админ', 'Модератор', 'Пользователь'] },
+      {
+        name: 'role',
+        label: 'Роль',
+        placeholder: 'Выберите роль',
+        type: 'select',
+        options: ['Админ', 'Модератор', 'Пользователь']
+      },
       { name: 'registered_at', label: 'Дата регистрации', placeholder: 'Выберите дату', type: 'date' },
       { name: 'is_active', label: 'Активен?', type: 'checkbox' }
     ],
     children: [
       {
-        grid: { col: 3, col_span: 2, name: 'contact-info', title: 'Контактные данные' },
+        grid: { col: 3, col_span: 3, name: 'contact-info', title: 'Контактные данные' },
         fields: [
           { name: 'phone', label: 'Телефон', placeholder: 'Введите телефон', type: 'phone' },
-          { name: 'address', label: 'Адрес', placeholder: 'Введите адрес', type: 'input' }
+          { name: 'address', label: 'Адрес', placeholder: 'Введите адрес', type: 'input', class: 'span-2' }
         ]
       }
     ]
