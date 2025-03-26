@@ -9,7 +9,7 @@ import useAppHeader from '@/composables/app/useAppHeader'
 
 import { notification } from '@/utils/notification'
 
-import getHandleBackArgs from '@/helpers/getHandleBackArgs'
+import getBackArgs from '@/helpers/getBackArgs'
 
 const router = useRouter()
 
@@ -62,10 +62,11 @@ const {
 
 useAppHeader({
   title: `Detail demo${detail_id}`,
+  handleBack: () => router.push(getBackArgs(list_id)),
   breadcrumbs: [
     {
       label: list_id,
-      route: getHandleBackArgs(list_id)
+      route: getBackArgs(list_id)
     },
     { label: `Detail demo${detail_id}` }
   ]

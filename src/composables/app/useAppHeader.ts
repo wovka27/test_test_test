@@ -1,12 +1,12 @@
 import useStore from '@/composables/app/useStore'
 
-import type { IAppHeaderBreadcrumbsItem } from '@/stores/modules/appHeader'
+import type { IAppHeaderBreadcrumbsItem, IAppHeaderBtn } from '@/stores/modules/appHeader'
 
 export interface IHeaderParams {
   title?: string
   breadcrumbs: IAppHeaderBreadcrumbsItem[]
   handleBack?: Function | null
-  btn?: any
+  btn?: IAppHeaderBtn
   optionalCallback?: (app_header_state: any) => void
 }
 

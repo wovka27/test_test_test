@@ -9,7 +9,7 @@ import useAppHeader from '@/composables/app/useAppHeader'
 
 import { notification } from '@/utils/notification'
 
-import getHandleBackArgs from '@/helpers/getHandleBackArgs'
+import getHandleBackArgs from '@/helpers/getBackArgs'
 
 const router = useRouter()
 
