@@ -2,18 +2,14 @@
 import { computed, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 
-import FormLayout from '@/layouts/FormLayout.vue'
-
-import FormFieldGenerator from '@/components/FormGenerator/FormFieldGenerator.vue'
+import FormGenerator from '@/components/FormGenerator/FormGenerator.vue'
 import type { IFormFieldGeneratorData } from '@/components/FormGenerator/types'
 
 import useAppHeader from '@/composables/app/useAppHeader'
 
-import { message } from '@/utils/message'
+import { notification } from '@/utils/notification'
 
 import getHandleBackArgs from '@/helpers/getHandleBackArgs'
-import { notification } from '@/utils/notification'
-import FormGenerator from '@/components/FormGenerator/FormGenerator.vue'
 
 const router = useRouter()
 
