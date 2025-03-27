@@ -37,13 +37,13 @@ const { is_data_loaded, apply } = useEditorView({
   mount: {
     common: {
       app_header_props: () => ({
-        title: `Detail demo${detail_id}`,
+        title: `${list_id}-test${detail_id}`,
         breadcrumbs: [
           {
             label: list_id,
             route: getBackArgs(list_id)
           },
-          { label: `Detail demo${detail_id}` }
+          { label: `${list_id}-test${detail_id}` }
         ]
       })
     }
