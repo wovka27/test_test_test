@@ -55,12 +55,17 @@ const form_data = reactive({
   last_name: '',
   middle_name: '',
   updated_at: '',
-  is_work: '',
+  is_work: false,
   name1: '',
   last_name1: '',
   middle_name1: '',
   updated_at1: '',
-  is_work1: ''
+  is_work1: false,
+  name11: '',
+  last_name11: '',
+  middle_name11: '',
+  updated_at11: '',
+  is_work11: false
 })
 
 const data = reactive<IFormFieldGeneratorData[]>([
@@ -75,13 +80,25 @@ const data = reactive<IFormFieldGeneratorData[]>([
     ]
   },
   {
-    grid: { col: 2, col_span: 2, name: 'c_2', title: 'Какой-то заголовок' },
+    grid: { col: 2, col_span: 3, name: 'c_2', title: 'Какой-то заголовок' },
     fields: [
       { name: 'name1', label: 'имя', placeholder: 'Введите имя', type: 'input' },
       { name: 'last_name1', label: 'Отчество', placeholder: 'Введите отчество', type: 'input' },
       { name: 'middle_name1', label: 'Фамилия', placeholder: 'Введите фамилию', type: 'input' },
       { name: 'updated_at1', label: 'Дата обновления', placeholder: 'Выберите дату', type: 'date' },
-      { name: 'is_work1', label: 'Работает?', type: 'checkbox' }
+      { name: 'is_work1', label: 'Работает?', type: 'checkbox', class: 'span-2' }
+    ],
+    children: [
+      {
+        grid: { col: 3, col_span: 1, name: 'c_22', title: 'Еще какой-то заголовок' },
+        fields: [
+          { name: 'name11', label: 'имя', placeholder: 'Введите имя', type: 'input' },
+          { name: 'last_name11', label: 'Отчество', placeholder: 'Введите отчество', type: 'input' },
+          { name: 'middle_name11', label: 'Фамилия', placeholder: 'Введите фамилию', type: 'input' },
+          { name: 'updated_at11', label: 'Дата обновления', placeholder: 'Выберите дату', type: 'date' },
+          { name: 'is_work11', label: 'Работает?', type: 'checkbox' }
+        ]
+      }
     ]
   }
 ])
@@ -96,12 +113,17 @@ const cancel = () => {
     last_name: '',
     middle_name: '',
     updated_at: '',
-    is_work: '',
+    is_work: false,
     name1: '',
     last_name1: '',
     middle_name1: '',
     updated_at1: '',
-    is_work1: ''
+    is_work1: false,
+    name11: '',
+    last_name11: '',
+    middle_name11: '',
+    updated_at11: '',
+    is_work11: false
   })
 }
 </script>
