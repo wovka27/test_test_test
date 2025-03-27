@@ -8,10 +8,6 @@ import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/test_test_test/',
-  build: {
-    outDir: 'dist'
-  },
   plugins: [
     vue(),
 
