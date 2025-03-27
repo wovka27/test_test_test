@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createMemoryHistory, createRouter, createWebHistory } from 'vue-router'
 
 import Demo3EditorView from '@/views/Demo3EditorView.vue'
 import Demo3ListView from '@/views/Demo3ListView.vue'
@@ -11,7 +11,7 @@ import DemoListView from '@/views/DemoListView.vue'
 import LoginView from '@/views/LoginView.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createMemoryHistory(import.meta.env.BASE_URL),
   routes: [
     { path: '/', component: LoginView },
     { path: '/:catchAll(.*)', redirect: '/' },
