@@ -21,14 +21,14 @@ const data = getMockList(3)
     <PskTable :data="data">
       <el-table-column label="Название" sortable prop="name" min-width="350px">
         <template #default="scope">
-          <PskLink :to="`/demo-3/${scope.row.uid}`">{{ scope.row.name }}</PskLink>
+          <PskLink :to="`./demo-3/${scope.row.uid}`">{{ scope.row.name }}</PskLink>
         </template>
       </el-table-column>
 
       <el-table-column fixed="right" width="85">
         <template #default="scope">
           <TableActionsContainer>
-            <PskLink small-font-weight :to="`/demo-3/${scope.row.uid}`">Изменить</PskLink>
+            <PskLink small-font-weight :to="`./demo-3/${scope.row.uid}`">Изменить</PskLink>
           </TableActionsContainer>
         </template>
       </el-table-column>
