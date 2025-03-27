@@ -12,7 +12,7 @@ import DemoListView from '@/views/DemoListView.vue'
 const router = createRouter({
   history: createWebHistory('.' + import.meta.env.BASE_URL),
   routes: [
-    { path: '/', redirect: './demo-1' },
+    { path: '/', redirect: '/demo-1' },
     { path: '/:catchAll(.*)', redirect: '/' },
     { meta: { layout: 'default' }, path: '/demo-1', name: 'demo-1', component: DemoListView },
     { meta: { layout: 'default' }, path: '/demo-1/:uid', component: DemoEditorView },
