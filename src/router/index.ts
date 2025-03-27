@@ -10,6 +10,8 @@ import DemoEditorView from '@/views/DemoEditorView.vue'
 import DemoListView from '@/views/DemoListView.vue'
 import LoginView from '@/views/LoginView.vue'
 
+console.log(import.meta.env.BASE_URL)
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
