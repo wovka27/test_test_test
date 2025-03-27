@@ -15,17 +15,17 @@ const router = createRouter({
   routes: [
     { path: '/', component: LoginView },
     { path: '/:catchAll(.*)', redirect: '/' },
-    { path: './demo-1', name: 'demo-1', component: DemoListView, meta: { layout: 'default' } },
-    { path: './demo-1/:uid', component: DemoEditorView, meta: { layout: 'default' } },
+    { path: '/demo-1', name: 'demo-1', component: DemoListView, meta: { layout: 'default' } },
+    { path: '/demo-1/:uid', component: DemoEditorView, meta: { layout: 'default' } },
 
-    { path: './demo-3', name: 'demo-3', component: Demo3ListView, meta: { layout: 'default' } },
-    { path: './demo-3/:uid', component: Demo3EditorView, meta: { layout: 'default' } },
+    { path: '/demo-3', name: 'demo-3', component: Demo3ListView, meta: { layout: 'default' } },
+    { path: '/demo-3/:uid', component: Demo3EditorView, meta: { layout: 'default' } },
 
-    { path: './demo-4', name: 'demo-4', component: Demo4ListView, meta: { layout: 'default' } },
-    { path: './demo-4/:uid', component: Demo4EditorView, meta: { layout: 'default' } },
+    { path: '/demo-4', name: 'demo-4', component: Demo4ListView, meta: { layout: 'default' } },
+    { path: '/demo-4/:uid', component: Demo4EditorView, meta: { layout: 'default' } },
 
-    { path: './demo-5', name: 'demo-5', component: Demo5ListView, meta: { layout: 'default' } },
-    { path: './demo-5/:uid', component: Demo5EditorView, meta: { layout: 'default' } }
+    { path: '/demo-5', name: 'demo-5', component: Demo5ListView, meta: { layout: 'default' } },
+    { path: '/demo-5/:uid', component: Demo5EditorView, meta: { layout: 'default' } }
   ]
 })
 
