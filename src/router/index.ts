@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 import Demo3EditorView from '@/views/Demo3EditorView.vue'
 import Demo3ListView from '@/views/Demo3ListView.vue'
@@ -10,7 +10,7 @@ import DemoEditorView from '@/views/DemoEditorView.vue'
 import DemoListView from '@/views/DemoListView.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   routes: [
     { path: '/', redirect: '/demo-1' },
     { path: '/:catchAll(.*)', redirect: '/' },
