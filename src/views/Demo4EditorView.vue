@@ -29,7 +29,7 @@ const { is_data_loaded, apply } = useEditorView({
     }
   },
   back_route_name: 'demo-4',
-  fetchGetEntity: async () => await fetchGetData(),
+  fetchGetEntity: fetchGetData,
   getRequestData: () => ({ ...form_data }),
   setFormData: (formData) => {
     Object.assign(form_data, formData['4'])

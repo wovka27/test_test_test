@@ -8,7 +8,7 @@ import { getMockList } from '@/mock/mockList'
 
 const store = useStore()
 
-useAppHeader(store,{
+useAppHeader(store, {
   title: 'Demo List',
   breadcrumbs: [{ label: 'Demo List' }]
 })
