@@ -25,6 +25,7 @@ const data = getMockList(3)
         </template>
       </el-table-column>
 
+
       <el-table-column fixed="right" width="85">
         <template #default="scope">
           <TableActionsContainer>
