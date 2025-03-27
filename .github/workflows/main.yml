@@ -32,8 +32,6 @@ jobs:
         run: npm ci
       - name: Clean cache
         run: npm cache clean --force
-      - name: Remove dist folder
-        run: rm -rf dist
       - name: Build
         run: npm run build
       - name: Setup Pages
