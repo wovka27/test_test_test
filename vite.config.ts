@@ -8,7 +8,7 @@ import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: './',
+  base: '/wovka27.github.io/test_test_test',
   build: {
     outDir: 'dist'
   },
